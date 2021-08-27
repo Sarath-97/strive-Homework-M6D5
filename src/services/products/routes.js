@@ -1,8 +1,9 @@
-import {Router} from "router"
-import productsHandlers from "./handlers.js"
+import {Router} from "express"
+import * as handlers  from "./handlers.js"
+
 
 const route = Router()
 
-route.get("/",productsHandlers.list)
+route.get("/",handlers.list)
 
 export default route
