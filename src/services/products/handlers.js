@@ -1,6 +1,6 @@
 import db from "../../db/connections.js"
 
-export const list = (req, res, next) => {
+export const list = async (req, res, next) => {
     try {
 		const products = await db.query(`SELECT * FROM products`);
 		res.send(products.rows);
@@ -21,21 +21,21 @@ export const create = async (req, res, next) => { // POST
 	}
 };
 
-export const single = async (req, res, next) => { // GET 1
-	try {
-		const { product_id } = req.params;
-		const products = await db.query(
-			`SELECT * FROM products WHERE id=${product_id};`
-		);
-		const [found, ...rest] = products.rows;
+// export const single = async (req, res, next) => { // GET 1
+// 	try {
+// 		const { product_id } = req.params;
+// 		const products = await db.query(
+// 			`SELECT * FROM products WHERE id=${product_id};`
+// 		);
+// 		const [found, ...rest] = products.rows;
 
-		res.status(found ? 200 : 404).send(found);
-	} catch (error) {
-		res.status(500).send(error);
-	}
-};
+// 		res.status(found ? 200 : 404).send(found);
+// 	} catch (error) {
+// 		res.status(500).send(error);
+// 	}
+// };
 
-export const update = async (req, res, next) => { // PUT TO 1
+/* export const update = async (req, res, next) => { // PUT TO 1
 	try {
 		const { product_id } = req.params;
 		const { name, description, brand, image_url, price, category } = req.body;
@@ -70,5 +70,6 @@ export const deleteProduct = async (req, res, next) => { // DELETE
 		res.status(dbResult.rowCount ? 200 : 400).send();
 	} catch (error) {
 		res.status(500).send(error);
-	}
+	} 
 };
+*/
