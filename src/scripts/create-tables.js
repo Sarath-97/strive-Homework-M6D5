@@ -2,7 +2,7 @@ import fs from "fs-extra";
 
 import { join } from "path";
 
-import db from "../db/connection.js";
+import db from "../db/connections.js";
 
 const sqlFilePath = join(process.cwd(), "src/sql/create-tables.sql");
 

@@ -17,4 +17,3 @@ server.listen(PORT, async () => {
 });
 
 server.on("error", (error) => console.log(`Server failed: ${error}`));
-d
